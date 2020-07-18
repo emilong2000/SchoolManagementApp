@@ -1,0 +1,89 @@
+﻿@model DomainModel.Models.Dtos.CourseDto
+@{
+    ViewBag.Title = "CourseRegiser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <body>
+        <br />
+        @{
+            if (ViewBag.Status != null)
+            {
+                if (ViewBag.Status == "Success")
+                {
+                    <div>
+                        <span style="color:forestgreen; text-align:center">Record Inserted Successfully</span>
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <span style="color:red; text-align:center">@ViewBag.Status</span>
+                    </div>
+                }
+
+            }
+
+        }
+        <form method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="control-label col-md-3">Course Code</label>
+                    <div class="col-md-9">
+                        <select class="ui-multiselect ui-widget allcourses" id="allcourses" name="allcourses" multiple="multiple"></select>
+                    </div>
+                </div>
+                <br /><br />
+                <button class="btn btn-success" id="selectedCourses">Save</button>
+            </div>
+
+        </form>
+        @section scripts {
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $.getJSON("/Student/AddCourses",
+                        {},
+                        function (datas) {
+                            $.each(datas,
+                                function (key, val) {
+                                    //debugger;
+                                    $("#allcourses").append('<option value="' + val.CourseCode + '">' + val.CourseCode+' ' + '</option>');
+                                });
+                            $("#allcourses").attr('multiple', 'multiple');
+                            $("#allcourses").multiselect();
+                        });
+
+                    $("#selectedCourses").on('click', function () {
+                        
+                        var selectedvalue = $("#allcourses option:selected").text();
+                        $.getJSON("/Student/PostCourse", { "Courses": selectedvalue }, function (data) {
+
+                            //var message = data.response;
+                                if (data === "Success") {
+                                    alert("Record was inserted successfully");
+                                }
+                                else {
+                                    alert("Something went wrong");
+                                }  
+                                
+                                    
+                            });
+
+
+                     });
+
+                });
+
+
+
+            </script>
+
+        }
+    </body>
+
+
+

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StudentPortal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700|Anton" rel="stylesheet">
+
+    <link href="~/foundation/fonts/icomoon/style.css" rel="stylesheet" />
+    <link href="~/foundation/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/foundation/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/foundation/css/magnific-popup.css" rel="stylesheet" />
+
+    <link href="~/foundation/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/foundation/fonts/flaticon/font/flaticon.css" rel="stylesheet" />
+    <link href="~/foundation/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/foundation/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/foundation/css/aos.css" rel="stylesheet" />
+    <link href="~/foundation/css/style.css" rel="stylesheet" />
+
+    <link href="~/Scripts/multipleselect/css/jquery.multiselect.css" rel="stylesheet" />
+    <link href="~/Scripts/multipleselect/css/prettify.css" rel="stylesheet" />
+    <link href="~/Scripts/multipleselect/css/jquery-ui.css" rel="stylesheet" />
+    <style>
+        .ui-multiselect {
+            min-width: 40%
+        }
+
+        .ui-widget {
+            position: absolute;
+            z-index: 9600
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="site-wrap" id="home-section">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+
+        <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+            <div class="container">
+                <div class="row align-items-center position-relative">
+
+
+                    <div class="site-logo">
+                        <a href="index.html" class="text-black"><span class="text-primary">Foundation</a>
+                    </div>
+
+                    <nav class="site-navigation text-center ml-auto" role="navigation">
+
+                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                            <li><a href="/Home/Index" class="nav-link">Home</a></li>
+                            <li><a href="#about-section" class="nav-link">About</a></li>
+                            <li><a href="/Student/CourseRegiser" class="nav-link">Student Courses</a></li>
+                            <li><a href="/Course/Add" class="nav-link">Register Course</a></li>
+                            <li><a href="/Student/AddStudent" class="nav-link">Register</a></li>
+
+                        </ul>
+
+                    </nav>
+
+                    @Html.Partial("_LoginPartial")
+
+                    <div class="toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+                </div>
+            </div>
+
+        </header>
+
+    </div>
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/foundation/js/jquery-3.3.1.min.js"></script>
+    <script src="~/foundation/js/jquery-ui.js"></script>
+    <script src="~/foundation/js/popper.min.js"></script>
+    <script src="~/foundation/js/bootstrap.min.js"></script>
+    <script src="~/foundation/js/owl.carousel.min.js"></script>
+    <script src="~/foundation/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/foundation/js/jquery.sticky.js"></script>
+    <script src="~/foundation/js/jquery.waypoints.min.js"></script>
+    <script src="~/foundation/js/jquery.animateNumber.min.js"></script>
+    <script src="~/foundation/js/aos.js"></script>
+    <script src="~/foundation/js/main.js"></script>
+
+    <script src="~/Scripts/multipleselect/js/prettify.js"></script>
+    <script src="~/Scripts/multipleselect/js/jquery.multiselect.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

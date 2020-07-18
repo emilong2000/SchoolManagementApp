@@ -1,0 +1,93 @@
+﻿@model DomainModel.Models.Dtos.CourseDto
+
+@{
+    Layout = Layout;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @{
+        if (ViewBag.Status != null)
+        {
+            if (ViewBag.Status == "Success")
+            {
+                <div>
+                    <span style="color:forestgreen; margin-left:40%">@ViewBag.Status</span>
+                </div>
+            }
+            else
+            {
+                <div>
+                    <span style="color:red; margin-left:40%">@ViewBag.Status</span>
+                </div>
+            }
+
+        }
+
+    }
+    <br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @*<div class="panel-heading">
+                    <h3 class="panel-title" style="text-align:center">Enquiry Register Form</h3>
+                </div>
+                <br />*@
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8" style="background-color:lavender">
+                        <h4 style="margin-left:40%; padding-top:2%;padding-bottom:2%">Register Course</h4>
+                    </div>
+                    
+                </div>
+                <div class="row">
+
+                    <div class="col-md-8" style="background-color:lavender;">
+
+                        <div class="form-group form-inline">
+                            <label class="col-sm-2">Course Name</label>&nbsp;&nbsp;&nbsp;
+                            @Html.EditorFor(model => model.CourseName, new { htmlAttributes = new { @class = "form-control col-sm-9" } })
+                            @Html.ValidationMessageFor(model => model.CourseName, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="form-group form-inline">
+                            <label class="col-sm-2">Course Code</label>&nbsp;&nbsp;&nbsp;
+                            @Html.EditorFor(model => model.CourseCode, new { htmlAttributes = new { @class = "form-control col-sm-9", } })
+                            @Html.ValidationMessageFor(model => model.CourseCode, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <label class="col-sm-2"></label>
+                            <div class="col-sm-9">
+                                <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+
+            </div>
+
+        </div>
+
+    }
+
+    
+</body>
+</html>

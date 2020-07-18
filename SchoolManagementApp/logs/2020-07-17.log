@@ -1,0 +1,2 @@
+2020-07-17 23:09:12.2705 ERROR System.UnauthorizedAccessException: Attempted to perform an unauthorized operation.
+   at DataAccess.UserLogin.IsValidUser(Login login) in C:\Users\User\source\repos\SchoolManagementApp\DataAccess\UserLogin.cs:line 40

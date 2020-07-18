@@ -1,0 +1,64 @@
+﻿@model DomainModel.Models.Dtos.CourseDto
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<form action="@Url.Action("PostCourse")" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Course Code</label>
+            <div class="col-md-9">
+                <select class="form-control multiselect-ui allcourses example-getting-started" id="allcourses" name="allcourses" multiple="multiple"></select>
+            </div>
+        </div>
+        <div><button class="btn btn-success" id="courses">Save</button></div>
+    </div>
+</form>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+    $(function () {
+            $(".allcourses").ready(function () {//get all Document names populated in the dropdownlist
+                debugger;
+                $.getJSON("/Student/AddCourses",
+                    {},
+                    function (datas) {
+                        $.each(datas,
+                            function (key, val) {
+                                $(".allcourses").append('<option value="' + val.CourseCode + '">' + val.CourseCode + '</option>');
+                            });
+                        $(".allcourses").attr('multiple', 'multiple');
+                        $("#allcourses").multiselect();
+                    });
+
+            });
+
+            $("#courses").click(function () {
+                debugger;
+                var selectedvalue = $("#allcourses option:selected").text();
+                $.post('@Url.Action("PostCourse")', { "Courses": selectedvalue }, function (data)){
+
+
+                }
+
+
+            });
+
+
+    });
+</script>
+
+
+
+
+
+

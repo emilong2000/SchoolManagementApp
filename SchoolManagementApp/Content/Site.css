@@ -1,0 +1,75 @@
+﻿body {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.btnClass {
+    color: #fff;
+    background-color: #5c3092;
+    border-color: #2e6da4;
+}
+
+.form-control {
+    border-color: #5c3092;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    min-width: 280px;
+}*/
+.cardClass {
+    padding: 20px;
+    border: 1px solid #ccb27f;
+}
+
+.textClass {
+    color: #ccb27f;
+}
+
+.ui-resizable-se {
+    bottom: 18px;
+    right: 25px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.cellClass {
+    min-width: 170px
+}
+
+.cellClass2 {
+    min-width: 260px;
+}
+
+td {
+    color: black;
+    font-size: 14px;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.inline {
+    display: inline;
+}
